@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GcPrinterDemo</string>
+    <string name="app_name">EzPrinterDemo</string>
     <string name="btn_button">Print String</string>
     <string name="btn_bmp">Print Picture</string>
 
