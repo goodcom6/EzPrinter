@@ -4,7 +4,7 @@ This demo demonstrates how to easily print receipts on Goodcom devices using the
 The EzPrinter SDK support all the goodcom android pos printer(Printing devices can be viewed [here](https://www.igoodcom.com/)).
 <p float="left">
   <img src="images/DemoUi.png" width="30%" />
-  <img src="images/Receipt.png" width="50%" />
+  <img src="images/Receipt.jpg" width="50%" />
 </p>
 
 ## Main Features
