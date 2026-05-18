@@ -23,9 +23,9 @@ implementation("cn.goodcom:ezprinter:2.+")
 }
 ```
 
-Then Import `com.goodcom.gcprinter.GcPrinterUtils` at the beginning of the java file:
+Then Import `com.goodcom.gcprinter.GcPrinterHelper` at the beginning of the java file:
 ```
-import com.goodcom.gcprinter.GcPrinterUtils;
+import com.goodcom.gcprinter.GcPrinterHelper;
 ```
 
 ## Function list
