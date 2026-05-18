@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.goodcom.gcprinter.GcPrinterUtils;
+import com.goodcom.gcprinter.GcPrinterHelper;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -76,34 +76,35 @@ public class EzPrinterDemo extends Activity {
         Button btPrint = findViewById(R.id.btn_print);
         mBtnBmp = findViewById(R.id.btn_bmp);
 
+        boolean isSupport=GcPrinterHelper.getInstance().isDeviceSupport();
 
         btPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                GcPrinterUtils.drawCustom(mTvTitle.getText().toString(),GcPrinterUtils.fontBig,GcPrinterUtils.alignCenter);
-                GcPrinterUtils.drawOneLine();
-                GcPrinterUtils.drawNewLine();
-                GcPrinterUtils.drawText(mTvItem1Number.getText().toString(),GcPrinterUtils.fontSmallBold,
-                        mTvItem1Name.getText().toString(),GcPrinterUtils.fontSmallBold,
-                        mTvItem1Amt.getText().toString(),GcPrinterUtils.fontSmallBold);
-                GcPrinterUtils.drawLeftRight(mTvItem1Opt1Name.getText().toString(),0,
+                GcPrinterHelper.getInstance().drawCustom(mTvTitle.getText().toString(),GcPrinterHelper.fontBig,GcPrinterHelper.alignCenter);
+                GcPrinterHelper.getInstance().drawOneLine();
+                GcPrinterHelper.getInstance().drawNewLine();
+                GcPrinterHelper.getInstance().drawText(mTvItem1Number.getText().toString(),GcPrinterHelper.fontSmallBold,
+                        mTvItem1Name.getText().toString(),GcPrinterHelper.fontSmallBold,
+                        mTvItem1Amt.getText().toString(),GcPrinterHelper.fontSmallBold);
+                GcPrinterHelper.getInstance().drawLeftRight(mTvItem1Opt1Name.getText().toString(),0,
                         mTvItem1Opt1Amt.getText().toString(),0);
-                GcPrinterUtils.drawLeftRight(mTvItem1Opt2Name.getText().toString(),0,
+                GcPrinterHelper.getInstance().drawLeftRight(mTvItem1Opt2Name.getText().toString(),0,
                         mTvItem1Opt2Amt.getText().toString(),0);
-                GcPrinterUtils.drawNewLine();
-                GcPrinterUtils.drawText(mTvItem2Number.getText().toString(),GcPrinterUtils.fontSmallBold,
-                        mTvItem2Name.getText().toString(),GcPrinterUtils.fontSmallBold,
-                        mTvItem2Amt.getText().toString(),GcPrinterUtils.fontSmallBold);
-                GcPrinterUtils.drawLeftRight(mTvItem2Opt1Name.getText().toString(),0,
+                GcPrinterHelper.getInstance().drawNewLine();
+                GcPrinterHelper.getInstance().drawText(mTvItem2Number.getText().toString(),GcPrinterHelper.fontSmallBold,
+                        mTvItem2Name.getText().toString(),GcPrinterHelper.fontSmallBold,
+                        mTvItem2Amt.getText().toString(),GcPrinterHelper.fontSmallBold);
+                GcPrinterHelper.getInstance().drawLeftRight(mTvItem2Opt1Name.getText().toString(),0,
                         mTvItem2Opt1Amt.getText().toString(),0);
-                GcPrinterUtils.drawNewLine();
-                GcPrinterUtils.drawBarcode(mTvBarcode.getText().toString(),GcPrinterUtils.alignCenter,GcPrinterUtils.barcodeQrCode);
-                GcPrinterUtils.drawOneLine();
-                GcPrinterUtils.drawCustom(mEdText.getText().toString(),0,0);
-                GcPrinterUtils.drawOneLine();
-                GcPrinterUtils.drawCustom("Thanks!",0,GcPrinterUtils.alignCenter);
-                GcPrinterUtils.printText(getApplicationContext(),true);
+                GcPrinterHelper.getInstance().drawNewLine();
+                GcPrinterHelper.getInstance().drawBarcode(mTvBarcode.getText().toString(),GcPrinterHelper.alignCenter,GcPrinterHelper.barcodeQrCode);
+                GcPrinterHelper.getInstance().drawOneLine();
+                GcPrinterHelper.getInstance().drawCustom(mEdText.getText().toString(),0,0);
+                GcPrinterHelper.getInstance().drawOneLine();
+                GcPrinterHelper.getInstance().drawCustom("Thanks!",0,GcPrinterHelper.alignCenter);
+                GcPrinterHelper.getInstance().printText(getApplicationContext(),true);
             }
         });
 
@@ -160,7 +161,7 @@ public class EzPrinterDemo extends Activity {
                         bmp = getLoacalBitmap(path);
                     }
                     if(bmp!=null) {
-                        GcPrinterUtils.printBitmap(getApplicationContext(),bmp,GcPrinterUtils.alignCenter,true);
+                        GcPrinterHelper.getInstance().printBitmap(getApplicationContext(),bmp,GcPrinterHelper.alignCenter,true);
                     }
                     else {
                         Toast.makeText(EzPrinterDemo.this, "Fail to read picture file", Toast.LENGTH_SHORT).show();
